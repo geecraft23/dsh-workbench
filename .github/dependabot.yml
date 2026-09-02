@@ -7,7 +7,24 @@ updates:
       day: monday
       time: "04:00"
       timezone: Asia/Shanghai
+    versioning-strategy: lockfile-only
     open-pull-requests-limit: 5
+    groups:
+      development-dependencies:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: "@types/node"
+        update-types:
+          - version-update:semver-major
+      - dependency-name: js-yaml
+        update-types:
+          - version-update:semver-major
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
     labels:
       - dependencies
 
