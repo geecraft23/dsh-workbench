@@ -1,0 +1,45 @@
+name: Feature proposal
+description: Propose a concrete capability or improvement for the plugin.
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: Describe the user or maintainer need before proposing an implementation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: State observable behavior and important failure cases.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include existing Harness extension points or plugins that may already address the need.
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Permission and data impact
+      description: Note any file, network, process, credential, persistence, telemetry, or model-context access.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues for a related proposal.
+          required: true
+        - label: I have not included secrets or private data.
+          required: true

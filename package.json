@@ -1,0 +1,80 @@
+{
+  "name": "@geecraft23/dsh-workbench",
+  "version": "0.1.0",
+  "description": "Experimental third-party plugin workbench for DeepSeek Harness",
+  "keywords": [
+    "ai-agent",
+    "cordis",
+    "deepseek-harness",
+    "dsh",
+    "plugin"
+  ],
+  "homepage": "https://github.com/geecraft23/dsh-workbench#readme",
+  "bugs": {
+    "url": "https://github.com/geecraft23/dsh-workbench/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geecraft23/dsh-workbench.git"
+  },
+  "author": "geecraft23",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/types/**/*.d.ts",
+    "cordis.patch.yml"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "oxlint --deny-warnings src tests vitest.config.ts",
+    "pack:check": "pnpm pack --dry-run",
+    "prepare": "pnpm run build",
+    "prepublishOnly": "pnpm run verify",
+    "publint": "publint",
+    "test": "vitest run",
+    "test:built": "node --test tests/built-entry.test.mjs",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "verify": "pnpm run lint && pnpm run typecheck && pnpm run test:coverage && pnpm run build && pnpm run test:built && pnpm run publint"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/cordis-plugin-include": "^1.0.7",
+    "@deepseek-ai/cordis-plugin-loader": "^1.0.3",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.20.0",
+    "@vitest/coverage-v8": "^4.1.8",
+    "js-yaml": "^4.3.2",
+    "oxlint": "1.76.0",
+    "publint": "^0.3.21",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}

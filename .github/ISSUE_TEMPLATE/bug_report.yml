@@ -1,0 +1,68 @@
+name: Bug report
+description: Report reproducible behavior that differs from the documented contract.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Remove secrets and private data before submitting.
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version or commit
+      placeholder: 0.1.0 or a commit SHA
+    validations:
+      required: true
+
+  - type: input
+    id: harness-version
+    attributes:
+      label: DeepSeek Harness version
+      placeholder: 0.1.2-alpha.4
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include Node.js version, operating system, and relevant profile name.
+      placeholder: Node 24.20.0, macOS 15, profile web
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide the smallest ordered steps and a sanitized configuration.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include sanitized logs or errors when useful.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed API keys, tokens, credentials, private prompts, and user data.
+          required: true
+        - label: I searched existing issues for the same behavior.
+          required: true

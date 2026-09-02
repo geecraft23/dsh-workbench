@@ -1,0 +1,4 @@
+# Add the inert workbench plugin as one profile row.
+- insert:
+    - id: geecraft23-workbench
+      name: '@geecraft23/dsh-workbench'
